@@ -12,4 +12,5 @@ public class Reservation {
     public void setTable(int table) {
         this.table = table;
     }
+    //Test
 }

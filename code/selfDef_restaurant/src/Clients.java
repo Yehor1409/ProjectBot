@@ -33,4 +33,9 @@ public class Clients {
     public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
+
+    @Override
+    public String toString() {
+        return "Clients name = " + name +  " id = " + id +  " numTel='" + numTel ;
+    }
 }

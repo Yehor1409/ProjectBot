@@ -1,2 +1,4 @@
-package Admin;public class viewTables {
+package Admin;
+
+public class viewTables {
 }

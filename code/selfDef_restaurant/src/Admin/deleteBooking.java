@@ -1,2 +1,4 @@
-package Admin;public class deleteBooking {
+package Admin;
+
+public class deleteBooking {
 }

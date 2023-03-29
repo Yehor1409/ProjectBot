@@ -1,2 +1,4 @@
-package Admin;public class approveBooking {
+package Admin;
+
+public class approveBooking {
 }

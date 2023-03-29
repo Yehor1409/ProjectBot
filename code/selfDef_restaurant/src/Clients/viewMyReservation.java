@@ -1,2 +1,4 @@
-package Admin;public class viewMyReservation {
+package Clients;
+
+public class viewMyReservation {
 }

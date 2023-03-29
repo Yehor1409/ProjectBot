@@ -1,2 +1,4 @@
-package Admin;public class endOfDay {
+package Admin;
+
+public class endOfDay {
 }

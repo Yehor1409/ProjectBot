@@ -1,2 +1,5 @@
-package Admin;public class registration {
+package Clients;
+
+public class registration {
+
 }

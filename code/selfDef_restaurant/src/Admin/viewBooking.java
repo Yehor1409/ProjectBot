@@ -1,2 +1,4 @@
-package Admin;public class viewBooking {
+package Admin;
+
+public class viewBooking {
 }

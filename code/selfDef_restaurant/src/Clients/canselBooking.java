@@ -1,2 +1,4 @@
-package Admin;public class canselBooking {
+package Clients;
+
+public class canselBooking {
 }

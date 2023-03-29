@@ -1,2 +1,4 @@
-package Admin;public class booking {
+package Clients;
+
+public class booking {
 }

@@ -5,6 +5,68 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+/*
+сценарий работы программы
+     Класс Client:
+        1. Регистрация (номер телефона, присвоение ID)
+        name
+        phone
+        2. Присвоение
+        Id
+        3. Просмотр свободных столов. тянем из Table
+
+        4. Выбор доступного стола.
+        делаем связку стола с клиентом
+
+        4. Вывод статуса выбрвного стола
+
+
+     Класс Table:
+        1. Сформировать базу столов.
+        id
+        status
+        client name
+        client phone
+        time
+
+      Класс Main:
+
+
+
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в наш ресторан!");

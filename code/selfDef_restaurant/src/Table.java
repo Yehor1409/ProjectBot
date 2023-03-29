@@ -1,8 +1,8 @@
-public class Tables {
+public class Table {
     int table;
     Boolean reservation;
 
-    public Tables(int table, Boolean reservation) {
+    public Table(int table, Boolean reservation) {
         this.table = table;
         this.reservation = reservation;
     }
@@ -25,7 +25,7 @@ public class Tables {
 
     @Override
     public String toString() {
-        return "Tables" +
+        return "Table" +
                 "table=" + table +
                 ", reservation=" + reservation +
                 '}';

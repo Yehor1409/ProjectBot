@@ -1,10 +1,10 @@
-public class Clients {
+public class Client {
 
     String name;
     int id;
     String numTel;
 
-    public Clients(String name, int id, String numTel) {
+    public Client(String name, int id, String numTel) {
         this.name = name;
         this.id = id;
         this.numTel = numTel;
@@ -36,6 +36,6 @@ public class Clients {
 
     @Override
     public String toString() {
-        return "Clients name = " + name +  " id = " + id +  " numTel='" + numTel ;
+        return "Client name = " + name +  " id = " + id +  " numTel='" + numTel ;
     }
 }

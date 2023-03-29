@@ -39,11 +39,14 @@ public class Client {
 
     public Reservation reserve_table(HashMap<Integer, Boolean> map) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Введите номер стола:");
         int tableNumber = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Введите Имя: ");
          name = scanner.nextLine();
+
         System.out.println("Введите номер телефона: ");
          numTel = scanner.nextLine();
 
@@ -58,8 +61,8 @@ public class Client {
             System.out.println("Столик " + tableNumber + " уже зарезервирован." );
         }
 
-        String reserve_info = ("Столик " + tableNumber + "статус зарезервирован : " + name + " " + numTel);
-        String oldState = ("Столик: " + tableNumber + " статус: свободен");
+        String reserve_info = ("Столик: " + tableNumber + " статус:  зарезервирован клиент " + name + " " + numTel);
+        String oldState = ("Столик: " + tableNumber + " статус:  свободен ");
 
 
 

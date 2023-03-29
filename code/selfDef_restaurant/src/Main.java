@@ -19,9 +19,8 @@ import java.util.Scanner;
         2. Показ свободные столы пункт 1.1
         3. Считать выбор стола
         4. Спросить
-        время
-        имя
-        номер телефона
+            имя
+            номер телефона
         5. Обновить файл
         6. Показать меню программы
             1.Список столов
@@ -49,7 +48,7 @@ public class Main {
         String path = "C:\\Users\\AIT TR Student\\Desktop\\projekt\\ProjectBot\\code\\selfDef_restaurant\\src\\";
         String file_name = "table_status.txt";
         Client client = new Client();
-1
+
 
         Scanner scanner = new Scanner(System.in);
         int menu = scanner.nextInt();
@@ -63,7 +62,7 @@ public class Main {
                 String reserveInfo = reserve_return.getReserve_info();
                 int chosenTable = reserve_return.getTableNumber();
                 String oldState = reserve_return.getOldState();
-                Table.update_table_status(tables, chosenTable, filePath, oldState,reserveInfo,file_name);
+                Table.update_table_status(tables, chosenTable, path, oldState,reserveInfo,file_name);
 
             case 3 :
 

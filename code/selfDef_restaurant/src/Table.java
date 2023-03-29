@@ -53,6 +53,7 @@ public class Table {
             e.printStackTrace();
         }
         String newPath = myFile.getPath();
+        System.out.println(newPath);
         return newPath;
 
 
@@ -62,7 +63,7 @@ public class Table {
 
     public static void save_table_status(HashMap<Integer, Boolean> map, String path) {
         try {
-            FileWriter myWriter = new FileWriter(path );
+            FileWriter myWriter = new FileWriter(path);
             // записываем статус столиков в файл
             for (Object i : map.keySet()) {
                 String status = "";
@@ -86,13 +87,14 @@ public class Table {
                                             String oldTableInfo, String newTableInfo, String fileName)
             throws IOException {
         map.put(tableNum,false);
-        FileWriter myWriter = new FileWriter(path );
-        //  File fileToBeModified = new File(path);
+        File fileToBeModified = new File(path+fileName);
         String oldContent = "";
         BufferedReader reader = null;
+        System.out.println(oldTableInfo+" old info do try catch");
+        System.out.println(newTableInfo+" new info do try catch");
 
         try {
-            reader = new BufferedReader(new FileReader(path));
+            reader = new BufferedReader(new FileReader(fileToBeModified));
             // Считываем все строки из файла в переменную oldContent
             String line = reader.readLine(); // буферная переменная для записи
             while (line != null)
@@ -103,9 +105,18 @@ public class Table {
             //Replacing oldString with newString in the oldContent
             // Замена oldString на newString в oldContent
             String newContent = oldContent.replaceAll(oldTableInfo, newTableInfo);
+
+            System.out.println(oldTableInfo+" old info v try catch");
+            System.out.println(newTableInfo+" new info v try catch");
+
+            System.out.println(newContent);
             //Rewriting the input text file with newContent
             // Переписываем файл
+            FileWriter myWriter = new FileWriter(path+fileName);
+            System.out.println(path+fileName);
             myWriter.write(newContent);
+            System.out.println(newContent);
+            myWriter.close();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -114,7 +125,7 @@ public class Table {
             try{
                 //Closing the resources
                 reader.close();
-                myWriter.close();
+            //    myWriter.close();
             }
             catch (IOException e) {
                 e.printStackTrace();

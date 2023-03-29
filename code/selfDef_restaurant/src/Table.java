@@ -1,3 +1,4 @@
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.util.HashMap;
 
@@ -53,7 +54,6 @@ public class Table {
             e.printStackTrace();
         }
         String newPath = myFile.getPath();
-        System.out.println(newPath);
         return newPath;
 
 
@@ -90,8 +90,6 @@ public class Table {
         File fileToBeModified = new File(path+fileName);
         String oldContent = "";
         BufferedReader reader = null;
-        System.out.println(oldTableInfo+" old info do try catch");
-        System.out.println(newTableInfo+" new info do try catch");
 
         try {
             reader = new BufferedReader(new FileReader(fileToBeModified));
@@ -105,17 +103,10 @@ public class Table {
             //Replacing oldString with newString in the oldContent
             // Замена oldString на newString в oldContent
             String newContent = oldContent.replaceAll(oldTableInfo, newTableInfo);
-
-            System.out.println(oldTableInfo+" old info v try catch");
-            System.out.println(newTableInfo+" new info v try catch");
-
-            System.out.println(newContent);
             //Rewriting the input text file with newContent
             // Переписываем файл
             FileWriter myWriter = new FileWriter(path+fileName);
-            System.out.println(path+fileName);
             myWriter.write(newContent);
-            System.out.println(newContent);
             myWriter.close();
         }
         catch (IOException e) {
@@ -156,7 +147,48 @@ public class Table {
                 System.out.println("Столик: " + i + " статус: " + status);
             }
         }
+    public static void update_table_cancel_status (HashMap < Integer, Boolean > map,int tableNum, String path,
+                                            String oldTableInfo, String newTableInfo, String fileName)
+            throws IOException {
+        map.put(tableNum,true);
+        File fileToBeModified = new File(path+fileName);
+        String oldContent = "";
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(fileToBeModified));
+            // Считываем все строки из файла в переменную oldContent
+            String line = reader.readLine(); // буферная переменная для записи
+            while (line != null)
+            {
+                oldContent = oldContent + line + System.lineSeparator();
+                line = reader.readLine();
+            }
+            //Replacing oldString with newString in the oldContent
+            // Замена oldString на newString в oldContent
+            String newContent = oldContent.replaceAll(oldTableInfo, newTableInfo);
 
-
+            //Rewriting the input text file with newContent
+            // Переписываем файл
+            FileWriter myWriter = new FileWriter(path+fileName);
+            myWriter.write(newContent);
+            myWriter.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try{
+                //Closing the resources
+                reader.close();
+                //    myWriter.close();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
+
+}
 

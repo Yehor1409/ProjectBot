@@ -63,10 +63,16 @@ public class Main {
                 int chosenTable = reserve_return.getTableNumber();
                 String oldState = reserve_return.getOldState();
                 Table.update_table_status(tables, chosenTable, path, oldState,reserveInfo,file_name);
-
+                Table.print_table_status(tables);
             case 3 :
-
+                Reservation reserve_cancel = client.cancel_reserve_table(tables);
+                int canceled_table = reserve_cancel.getTableNumber();
+                String canceled_state = reserve_cancel.getCanceledState();
+                String old_state = reserve_cancel.getOldState();
+                Table.update_table_cancel_status(tables,canceled_table,path,old_state,canceled_state,file_name);
+                Table.print_table_status(tables);
             case 4 :
+                System.out.println("Спасибо за использование нашей программы");
 
 
 

@@ -2,7 +2,8 @@
 
 public class Reservation {
 
-       String reserve_info;
+    String canceledState;
+    String reserve_info;
 
        int tableNumber;
 
@@ -17,6 +18,21 @@ public class Reservation {
     }
 
     public Reservation() {
+    }
+
+    public Reservation(int tableNumber, String canceledState, String oldState) {
+        this.canceledState = canceledState;
+        this.tableNumber = tableNumber;
+        this.oldState = oldState;
+
+    }
+
+    public String getCanceledState() {
+        return canceledState;
+    }
+
+    public void setCanceledState(String canceledState) {
+        this.canceledState = canceledState;
     }
 
     public String getReserve_info() {

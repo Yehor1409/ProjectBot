@@ -2,72 +2,111 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 
 /*
 сценарий работы программы
-     Класс Client:
-        1. Регистрация (номер телефона, присвоение ID)
-        name
-        phone
-        2. Присвоение
-        Id
-        3. Просмотр свободных столов. тянем из Table
 
-        4. Выбор доступного стола.
-        делаем связку стола с клиентом
-
-        4. Вывод статуса выбрвного стола
-
-
-     Класс Table:
-        1. Сформировать базу столов.
-        id
-        status
-        client name
-        client phone
-        time
-
-      Класс Main:
-
-
-
-
-
+        1. Приветсвие
+           Показать меню программы
+           1.Список столов
+           2.Сделать резерв
+           3.отмена резерва
+           4.закончить работу
+        2. Показ свободные столы пункт 1.1
+        3. Считать выбор стола
+        4. Спросить
+        время
+        имя
+        номер телефона
+        5. Обновить файл
+        6. Показать меню программы
+            1.Список столов
+            2.отмена резерва
+            3.закончить работу
 
 
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class Main {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Добро пожаловать в наш ресторан!");
+        System.out.println("Выберите из предложеноего  \n" +
+                "            1.Список столов\n" +
+                "            2.Сделать резерв\n" +
+                "            3.Отмена резерва\n" +
+                "            4.Закончить работу");
+
+        HashMap<Integer, Boolean> tables = new HashMap<Integer, Boolean>();
+        tables.put(1, true);
+        tables.put(2, false);
+        tables.put(3, false);
+        tables.put(4, true);
+        tables.put(5, true);
+
+        String path = "C:\\Users\\AIT TR Student\\Desktop\\projekt\\ProjectBot\\code\\selfDef_restaurant\\src\\";
+        String file_name = "table_status.txt";
+        Client client = new Client();
+1
+
+        Scanner scanner = new Scanner(System.in);
+        int menu = scanner.nextInt();
+        switch (menu){
+            case 1 : // показываем свободные столы
+                Table.print_table_status(tables);
+            case 2 : // Бронируем стол
+                String filePath = Table.create_file(path,file_name); // создали файл для хранения
+                Table.save_table_status(tables,filePath); // сделали запись
+                Reservation reserve_return = client.reserve_table(tables);
+                String reserveInfo = reserve_return.getReserve_info();
+                int chosenTable = reserve_return.getTableNumber();
+                String oldState = reserve_return.getOldState();
+                Table.update_table_status(tables, chosenTable, filePath, oldState,reserveInfo,file_name);
+
+            case 3 :
+
+            case 4 :
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+public class Main {
+
     public static void main(String[] args) {
         System.out.println("Добро пожаловать в наш ресторан!");
         // Небольшой ресторан, в котором имеется 5 столиков, хочет внедрить у себя вежливого
@@ -186,7 +225,5 @@ public class Main {
     //_____следующий метод ____________
 
 }
+*/
 
-/*
-
- */
